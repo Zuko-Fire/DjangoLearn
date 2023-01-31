@@ -1,14 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from django.shortcuts import render
+
 
 def index(request):
-    header = "Данные пользователя"  # обычная переменная
-    langs = ["Python", "Java", "C#"]  # список
-    user = {"name": "Tom", "age": 23}  # словарь
-    address = ("Абрикосовая", 23, 45)  # кортеж
-
-    data = {"header": header, "langs": langs, "user": user, "address": address}
+    num = int(request.GET.get("num"))
+    data = {"n": num}
     return render(request, "index.html", context=data)
 
 def about(request):
